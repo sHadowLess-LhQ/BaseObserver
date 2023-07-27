@@ -6,7 +6,6 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "cn.com.shadowless.baseobserver"
         minSdk 19
         targetSdk 32
         versionCode 1
@@ -25,7 +24,6 @@ android {
     lintOptions {
         abortOnError false
     }
-
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
