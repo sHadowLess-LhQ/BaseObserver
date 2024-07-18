@@ -42,9 +42,11 @@ b、远程仓库引入
 ```
      dependencies {
         implementation 'com.gitee.shadowless_lhq:base-observer:Tag'
-
-        implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
-        implementation 'com.github.li-xiaojun:XPopup:2.9.4'
+        implementation 'io.reactivex.rxjava3:rxjava:3.1.8'
+        //如需使用loadingObserver包下的类，请额外依赖
+        implementation 'com.github.li-xiaojun:XPopup:2.10.0'
+        //如需使用freshObserver包下的类，请额外依赖
+        implementation 'io.github.scwang90:refresh-layout-kernel:2.1.0'
     }
 ```
 
@@ -73,57 +75,4 @@ c、混淆规则
 
 #### 使用说明
 
-### BaseObserver
-
-```
-     //无加载框
-     new BaseObserver()
-     //自定义LoadingPopView/是否智能关闭
-     new BaseObserver(LoadingPopupView loadingPopupView, boolean isSmartDismiss)
-     //配置LoadingPopView
-     new BaseObserver(Activity activity, LoadingConfig config)
-```
-
-### BaseCompletableObserver
-
-```
-     //无加载框
-     new BaseCompletableObserver()
-     //自定义LoadingPopView/是否智能关闭
-     new BaseCompletableObserver(LoadingPopupView loadingPopupView, boolean isSmartDismiss)
-     //配置LoadingPopView
-     new BaseCompletableObserver(Activity activity, LoadingConfig config)
-```
-
-### BaseMaybeObserver
-
-```
-     //无加载框
-     new BaseMaybeObserver()
-     //自定义LoadingPopView/是否智能关闭
-     new BaseMaybeObserver(LoadingPopupView loadingPopupView, boolean isSmartDismiss)
-     //配置LoadingPopView
-     new BaseMaybeObserver(Activity activity, LoadingConfig config)
-```
-
-### BaseSingleObserver
-
-```
-     //无加载框
-     new BaseSingleObserver()
-     //自定义LoadingPopView/是否智能关闭
-     new BaseSingleObserver(LoadingPopupView loadingPopupView, boolean isSmartDismiss)
-     //配置LoadingPopView
-     new BaseSingleObserver(Activity activity, LoadingConfig config)
-```
-
-### BaseSubscriber
-
-```
-     //无加载框
-     new BaseSubscriber()
-     //自定义LoadingPopView/是否智能关闭
-     new BaseSubscriber(LoadingPopupView loadingPopupView, boolean isSmartDismiss)
-     //配置LoadingPopView
-     new BaseSubscriber(Activity activity, LoadingConfig config)
-```
+## 同RxJava里的观察者同样的使用方式

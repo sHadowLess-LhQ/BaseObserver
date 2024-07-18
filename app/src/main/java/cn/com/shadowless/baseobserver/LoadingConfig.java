@@ -9,35 +9,101 @@ public class LoadingConfig {
     /**
      * The Is view model.
      */
-    private final boolean isViewModel;
+    private boolean isViewModel;
     /**
      * The Can back cancel.
      */
-    private final boolean canBackCancel;
+    private boolean canBackCancel;
     /**
      * The Can out side cancel.
      */
-    private final boolean canOutSideCancel;
+    private boolean canOutSideCancel;
     /**
      * The Has blur bg.
      */
-    private final boolean hasBlurBg;
+    private boolean hasBlurBg;
     /**
      * The Has shadow.
      */
-    private final boolean hasShadow;
+    private boolean hasShadow;
     /**
-     * The Can cancel.
+     * The Is destroy on dismiss.
      */
-    private final boolean canCancel;
-    /**
-     * The Is smart dismiss.
-     */
-    private final boolean isSmartDismiss;
+    private boolean isDestroyOnDismiss;
     /**
      * The Load name.
      */
-    private final String loadName;
+    private String loadName;
+
+    /**
+     * Sets view model.
+     *
+     * @param viewModel the view model
+     */
+    public LoadingConfig setViewModel(boolean viewModel) {
+        this.isViewModel = viewModel;
+        return this;
+    }
+
+    /**
+     * Sets can back cancel.
+     *
+     * @param canBackCancel the can back cancel
+     */
+    public LoadingConfig setCanBackCancel(boolean canBackCancel) {
+        this.canBackCancel = canBackCancel;
+        return this;
+    }
+
+    /**
+     * Sets can out side cancel.
+     *
+     * @param canOutSideCancel the can out side cancel
+     */
+    public LoadingConfig setCanOutSideCancel(boolean canOutSideCancel) {
+        this.canOutSideCancel = canOutSideCancel;
+        return this;
+    }
+
+    /**
+     * Sets has blur bg.
+     *
+     * @param hasBlurBg the has blur bg
+     */
+    public LoadingConfig setHasBlurBg(boolean hasBlurBg) {
+        this.hasBlurBg = hasBlurBg;
+        return this;
+    }
+
+    /**
+     * Sets has shadow.
+     *
+     * @param hasShadow the has shadow
+     */
+    public LoadingConfig setHasShadow(boolean hasShadow) {
+        this.hasShadow = hasShadow;
+        return this;
+    }
+
+    /**
+     * Sets destroy on dismiss.
+     *
+     * @param destroyOnDismiss the destroy on dismiss
+     */
+    public LoadingConfig setDestroyOnDismiss(boolean destroyOnDismiss) {
+        isDestroyOnDismiss = destroyOnDismiss;
+        return this;
+    }
+
+    /**
+     * Sets load name.
+     *
+     * @param loadName the load name
+     */
+    public LoadingConfig setLoadName(String loadName) {
+        this.loadName = loadName;
+        return this;
+    }
 
     /**
      * Is view model boolean.
@@ -85,21 +151,12 @@ public class LoadingConfig {
     }
 
     /**
-     * Is can cancel boolean.
+     * Is destroy on dismiss boolean.
      *
      * @return the boolean
      */
-    public boolean isCanCancel() {
-        return canCancel;
-    }
-
-    /**
-     * Is smart dismiss boolean.
-     *
-     * @return the boolean
-     */
-    public boolean isSmartDismiss() {
-        return isSmartDismiss;
+    public boolean isDestroyOnDismiss() {
+        return isDestroyOnDismiss;
     }
 
     /**
@@ -114,23 +171,21 @@ public class LoadingConfig {
     /**
      * 构造
      *
-     * @param isViewModel      the is view model
-     * @param canBackCancel    the can back cancel
-     * @param canOutSideCancel the can out side cancel
-     * @param hasBlurBg        the has blur bg
-     * @param hasShadow        the has shadow
-     * @param canCancel        the can cancel
-     * @param isSmartDismiss   the is smart dismiss
-     * @param loadName         the load name
+     * @param isViewModel        the is view model
+     * @param canBackCancel      the can back cancel
+     * @param canOutSideCancel   the can out side cancel
+     * @param hasBlurBg          the has blur bg
+     * @param hasShadow          the has shadow
+     * @param isDestroyOnDismiss the is destroy on dismiss
+     * @param loadName           the load name
      */
-    public LoadingConfig(boolean isViewModel, boolean canBackCancel, boolean canOutSideCancel, boolean hasBlurBg, boolean hasShadow, boolean canCancel, boolean isSmartDismiss, String loadName) {
+    public LoadingConfig(boolean isViewModel, boolean canBackCancel, boolean canOutSideCancel, boolean hasBlurBg, boolean hasShadow, boolean isDestroyOnDismiss, String loadName) {
         this.isViewModel = isViewModel;
         this.canBackCancel = canBackCancel;
         this.canOutSideCancel = canOutSideCancel;
         this.hasBlurBg = hasBlurBg;
         this.hasShadow = hasShadow;
-        this.canCancel = canCancel;
-        this.isSmartDismiss = isSmartDismiss;
+        this.isDestroyOnDismiss = isDestroyOnDismiss;
         this.loadName = loadName;
     }
 
@@ -167,14 +222,11 @@ public class LoadingConfig {
          * The Has shadow.
          */
         private boolean hasShadow;
+
         /**
-         * The Can cancel.
+         * The Is destroy on dismiss.
          */
-        private boolean canCancel;
-        /**
-         * The Is smart dismiss.
-         */
-        private boolean isSmartDismiss;
+        private boolean isDestroyOnDismiss;
         /**
          * The Load name.
          */
@@ -190,6 +242,18 @@ public class LoadingConfig {
             this.isViewModel = isViewModel;
             return this;
         }
+
+        /**
+         * Is destroy on dismiss config builder.
+         *
+         * @param isDestroyOnDismiss the is destroy on dismiss
+         * @return the config builder
+         */
+        public ConfigBuilder isDestroyOnDismiss(boolean isDestroyOnDismiss) {
+            this.isDestroyOnDismiss = isDestroyOnDismiss;
+            return this;
+        }
+
 
         /**
          * Can back cancel config builder.
@@ -236,28 +300,6 @@ public class LoadingConfig {
         }
 
         /**
-         * Can cancel config builder.
-         *
-         * @param canCancel the can cancel
-         * @return the config builder
-         */
-        public ConfigBuilder canCancel(boolean canCancel) {
-            this.canCancel = canCancel;
-            return this;
-        }
-
-        /**
-         * Is smart dismiss config builder.
-         *
-         * @param isSmartDismiss the is smart dismiss
-         * @return the config builder
-         */
-        public ConfigBuilder isSmartDismiss(boolean isSmartDismiss) {
-            this.isSmartDismiss = isSmartDismiss;
-            return this;
-        }
-
-        /**
          * Load name config builder.
          *
          * @param loadName the load name
@@ -274,7 +316,7 @@ public class LoadingConfig {
          * @return the loading config
          */
         public LoadingConfig build() {
-            return new LoadingConfig(this.isViewModel, this.canBackCancel, this.canOutSideCancel, this.hasBlurBg, this.hasShadow, this.canCancel, this.isSmartDismiss, this.loadName);
+            return new LoadingConfig(this.isViewModel, this.canBackCancel, this.canOutSideCancel, this.hasBlurBg, this.hasShadow, this.isDestroyOnDismiss, this.loadName);
         }
     }
 }
