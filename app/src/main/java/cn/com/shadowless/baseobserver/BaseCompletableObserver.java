@@ -1,6 +1,5 @@
 package cn.com.shadowless.baseobserver;
 
-import android.app.Activity;
 import android.util.Log;
 
 
