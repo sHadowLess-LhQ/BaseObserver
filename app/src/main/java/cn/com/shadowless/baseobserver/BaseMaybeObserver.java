@@ -29,7 +29,7 @@ public abstract class BaseMaybeObserver<T> extends BaseAbstract<T> implements Ma
 
     @Override
     public void onError(Throwable e) {
-        fail(Log.getStackTraceString(e));
+        fail(Log.getStackTraceString(e), e);
     }
 
     @Override

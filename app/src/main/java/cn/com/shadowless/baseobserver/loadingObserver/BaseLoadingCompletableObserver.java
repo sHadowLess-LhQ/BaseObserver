@@ -35,15 +35,7 @@ public abstract class BaseLoadingCompletableObserver extends BaseCompletableObse
      * @param config   the config
      */
     public BaseLoadingCompletableObserver(@NonNull Activity activity, @NonNull LoadingConfig config) {
-        loadingPopupView = new XPopup
-                .Builder(activity)
-                .isDestroyOnDismiss(config.isDestroyOnDismiss())
-                .isViewMode(config.isViewModel())
-                .dismissOnBackPressed(config.isCanBackCancel())
-                .dismissOnTouchOutside(config.isCanOutSideCancel())
-                .hasBlurBg(config.isHasBlurBg())
-                .hasShadowBg(config.isHasShadow())
-                .asLoading(config.getLoadName());
+        loadingPopupView = new XPopup.Builder(activity).isDestroyOnDismiss(config.isDestroyOnDismiss()).isViewMode(config.isViewModel()).dismissOnBackPressed(config.isCanBackCancel()).dismissOnTouchOutside(config.isCanOutSideCancel()).hasBlurBg(config.isHasBlurBg()).hasShadowBg(config.isHasShadow()).asLoading(config.getLoadName());
         loadingPopupView.show();
     }
 
@@ -54,8 +46,8 @@ public abstract class BaseLoadingCompletableObserver extends BaseCompletableObse
     }
 
     @Override
-    public void fail(String error) {
-        loadingPopupView.delayDismissWith(time, () -> onFail(error));
+    public void fail(String error, Throwable e) {
+        loadingPopupView.delayDismissWith(time, () -> onFail(error, e));
     }
 
     @Override
@@ -77,6 +69,7 @@ public abstract class BaseLoadingCompletableObserver extends BaseCompletableObse
      * On fail.
      *
      * @param error the error
+     * @param e     the e
      */
-    public abstract void onFail(String error);
+    public abstract void onFail(String error, Throwable e);
 }

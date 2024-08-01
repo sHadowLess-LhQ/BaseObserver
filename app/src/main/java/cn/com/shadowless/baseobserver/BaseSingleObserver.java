@@ -26,6 +26,6 @@ public abstract class BaseSingleObserver<T> extends BaseAbstract<T> implements S
 
     @Override
     public void onError(@NonNull Throwable e) {
-        fail(Log.getStackTraceString(e));
+        fail(Log.getStackTraceString(e), e);
     }
 }

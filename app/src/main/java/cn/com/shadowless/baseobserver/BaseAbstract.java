@@ -24,8 +24,9 @@ public abstract class BaseAbstract<T> {
      * Fail.
      *
      * @param error the error
+     * @param e     the e
      */
-    public abstract void fail(String error);
+    public abstract void fail(String error, Throwable e);
 
     /**
      * Finish.

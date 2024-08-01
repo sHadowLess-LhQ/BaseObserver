@@ -14,7 +14,7 @@ public interface BaseErrorFunction<R> extends Function<Throwable, R> {
 
     @Override
     default R apply(Throwable throwable) throws Throwable {
-        return apply(Log.getStackTraceString(throwable));
+        return apply(Log.getStackTraceString(throwable), throwable);
     }
 
     /**
@@ -23,5 +23,5 @@ public interface BaseErrorFunction<R> extends Function<Throwable, R> {
      * @param error the error
      * @return the r
      */
-    R apply(String error);
+    R apply(String error, Throwable e);
 }

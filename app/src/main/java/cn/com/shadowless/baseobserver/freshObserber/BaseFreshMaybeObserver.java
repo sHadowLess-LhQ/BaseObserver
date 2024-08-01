@@ -55,13 +55,13 @@ public abstract class BaseFreshMaybeObserver<T> extends BaseMaybeObserver<T> {
     }
 
     @Override
-    public void fail(String error) {
+    public void fail(String error, Throwable e) {
         if (state == RefreshState.Refreshing) {
             refreshLayout.finishRefresh();
         } else if (state == RefreshState.Loading) {
             refreshLayout.finishLoadMore();
         }
-        onFail(error);
+        onFail(error, e);
     }
 
     @Override
@@ -103,5 +103,5 @@ public abstract class BaseFreshMaybeObserver<T> extends BaseMaybeObserver<T> {
      *
      * @param error the error
      */
-    public abstract void onFail(String error);
+    public abstract void onFail(String error, Throwable e);
 }

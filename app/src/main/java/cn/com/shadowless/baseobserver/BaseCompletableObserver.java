@@ -20,7 +20,7 @@ public abstract class BaseCompletableObserver extends BaseAbstract<Object> imple
 
     @Override
     public void onError(Throwable e) {
-        fail(Log.getStackTraceString(e));
+        fail(Log.getStackTraceString(e), e);
     }
 
     @Override

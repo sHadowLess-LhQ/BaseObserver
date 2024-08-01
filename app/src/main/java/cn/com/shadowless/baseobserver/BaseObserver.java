@@ -26,7 +26,7 @@ public abstract class BaseObserver<T> extends BaseAbstract<T> implements Observe
 
     @Override
     public void onError(Throwable e) {
-        fail(Log.getStackTraceString(e));
+        fail(Log.getStackTraceString(e), e);
     }
 
     @Override

@@ -60,8 +60,8 @@ public abstract class BaseLoadingSubscriber<T> extends BaseSubscriber<T> {
     }
 
     @Override
-    public void fail(String error) {
-        loadingPopupView.delayDismissWith(time, () -> onFail(error));
+    public void fail(String error, Throwable e) {
+        loadingPopupView.delayDismissWith(time, () -> onFail(error, e));
     }
 
     @Override
@@ -91,5 +91,5 @@ public abstract class BaseLoadingSubscriber<T> extends BaseSubscriber<T> {
      *
      * @param error the error
      */
-    public abstract void onFail(String error);
+    public abstract void onFail(String error, Throwable e);
 }

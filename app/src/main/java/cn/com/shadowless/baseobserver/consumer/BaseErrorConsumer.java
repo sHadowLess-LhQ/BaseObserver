@@ -13,7 +13,7 @@ public interface BaseErrorConsumer extends Consumer<Throwable> {
 
     @Override
     default void accept(Throwable throwable) throws Throwable {
-        error(Log.getStackTraceString(throwable));
+        error(Log.getStackTraceString(throwable), throwable);
     }
 
     /**
@@ -21,5 +21,5 @@ public interface BaseErrorConsumer extends Consumer<Throwable> {
      *
      * @param error the error
      */
-    void error(String error);
+    void error(String error, Throwable e);
 }

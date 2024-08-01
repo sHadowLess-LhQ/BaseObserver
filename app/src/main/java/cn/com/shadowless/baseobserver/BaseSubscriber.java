@@ -2,6 +2,7 @@ package cn.com.shadowless.baseobserver;
 
 
 import android.util.Log;
+
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 
@@ -25,7 +26,7 @@ public abstract class BaseSubscriber<T> extends BaseAbstract<T> implements Subsc
 
     @Override
     public void onError(Throwable e) {
-        fail(Log.getStackTraceString(e));
+        fail(Log.getStackTraceString(e), e);
     }
 
     @Override

@@ -57,13 +57,13 @@ public abstract class BaseFreshSingleObserver<T> extends BaseSingleObserver<T> {
     }
 
     @Override
-    public void fail(String error) {
+    public void fail(String error, Throwable e) {
         if (state == RefreshState.Refreshing) {
             refreshLayout.finishRefresh();
         } else if (state == RefreshState.Loading) {
             refreshLayout.finishLoadMore();
         }
-        onFail(error);
+        onFail(error, e);
     }
 
     /**
@@ -90,5 +90,5 @@ public abstract class BaseFreshSingleObserver<T> extends BaseSingleObserver<T> {
      *
      * @param error the error
      */
-    public abstract void onFail(String error);
+    public abstract void onFail(String error, Throwable e);
 }
