@@ -35,13 +35,13 @@ public abstract class BaseLoadingCompletableObserver extends BaseCompletableObse
      * @param config   the config
      */
     public BaseLoadingCompletableObserver(@NonNull Activity activity, @NonNull LoadingConfig config) {
-        loadingPopupView = new XPopup.Builder(activity).isDestroyOnDismiss(config.isDestroyOnDismiss()).isViewMode(config.isViewModel()).dismissOnBackPressed(config.isCanBackCancel()).dismissOnTouchOutside(config.isCanOutSideCancel()).hasBlurBg(config.isHasBlurBg()).hasShadowBg(config.isHasShadow()).asLoading(config.getLoadName());
-        loadingPopupView.show();
+        loadingPopupView = this.getLoadingPopView(activity, config);
     }
 
     @Override
     public void start() {
         onStart();
+        loadingPopupView.show();
         time = loadingPopupView.getAnimationDuration() + 200;
     }
 

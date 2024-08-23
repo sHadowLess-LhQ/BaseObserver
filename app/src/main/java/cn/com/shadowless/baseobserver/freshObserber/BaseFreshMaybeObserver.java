@@ -38,11 +38,6 @@ public abstract class BaseFreshMaybeObserver<T> extends BaseMaybeObserver<T> {
     @Override
     public void start() {
         onStart();
-        if (state == RefreshState.Refreshing) {
-            refreshLayout.autoRefresh();
-        } else if (state == RefreshState.Loading) {
-            refreshLayout.autoLoadMore();
-        }
     }
 
     @Override
@@ -56,21 +51,13 @@ public abstract class BaseFreshMaybeObserver<T> extends BaseMaybeObserver<T> {
 
     @Override
     public void fail(String error, Throwable e) {
-        if (state == RefreshState.Refreshing) {
-            refreshLayout.finishRefresh();
-        } else if (state == RefreshState.Loading) {
-            refreshLayout.finishLoadMore();
-        }
+        this.autoFinishRefreshAndLoad(state, refreshLayout);
         onFail(error, e);
     }
 
     @Override
     public void finish() {
-        if (state == RefreshState.Refreshing) {
-            refreshLayout.finishRefresh();
-        } else if (state == RefreshState.Loading) {
-            refreshLayout.finishLoadMore();
-        }
+        this.autoFinishRefreshAndLoad(state, refreshLayout);
         onFinish();
     }
 

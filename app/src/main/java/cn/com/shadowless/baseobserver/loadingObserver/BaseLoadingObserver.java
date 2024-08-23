@@ -35,20 +35,13 @@ public abstract class BaseLoadingObserver<T> extends BaseObserver<T> {
      * @param config   the config
      */
     public BaseLoadingObserver(@NonNull Activity activity, @NonNull LoadingConfig config) {
-        loadingPopupView = new XPopup.Builder(activity)
-                .isDestroyOnDismiss(config.isDestroyOnDismiss())
-                .isViewMode(config.isViewModel())
-                .dismissOnBackPressed(config.isCanBackCancel())
-                .dismissOnTouchOutside(config.isCanOutSideCancel())
-                .hasBlurBg(config.isHasBlurBg())
-                .hasShadowBg(config.isHasShadow())
-                .asLoading(config.getLoadName());
-        loadingPopupView.show();
+        loadingPopupView = this.getLoadingPopView(activity, config);
     }
 
     @Override
     public void start() {
         onStart();
+        loadingPopupView.show();
         time = loadingPopupView.getAnimationDuration() + 200;
     }
 
