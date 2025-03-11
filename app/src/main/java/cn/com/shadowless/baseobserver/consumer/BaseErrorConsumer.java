@@ -20,6 +20,7 @@ public interface BaseErrorConsumer extends Consumer<Throwable> {
      * Error.
      *
      * @param error the error
+     * @param e     the e
      */
     void error(String error, Throwable e);
 }

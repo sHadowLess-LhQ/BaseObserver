@@ -38,58 +38,32 @@ public abstract class BaseFreshObserver<T> extends BaseObserver<T> {
 
     @Override
     public void start() {
-        onStart();
+        onStartEvent();
     }
 
     @Override
     public void success(T t) {
         if (state == RefreshState.Refreshing) {
-            successRefresh(t);
+            onRefreshEvent(t);
         } else if (state == RefreshState.Loading) {
-            successLoad(t);
+            onLoadEvent(t);
         }
     }
 
     @Override
     public void fail(String error, Throwable e) {
+        onFailEvent(error, e);
         this.autoFinishRefreshAndLoad(state, refreshLayout);
-        onFail(error, e);
     }
 
     @Override
     public void finish() {
+        onFinishEvent();
         this.autoFinishRefreshAndLoad(state, refreshLayout);
-        onFinish();
     }
 
-    /**
-     * On start.
-     */
-    protected abstract void onStart();
+    @Override
+    public void onSuccessEvent(T t) {
 
-    /**
-     * Finish refresh.
-     *
-     * @param t the t
-     */
-    protected abstract void successRefresh(T t);
-
-    /**
-     * Finish load.
-     *
-     * @param t the t
-     */
-    protected abstract void successLoad(T t);
-
-    /**
-     * On finish.
-     */
-    public abstract void onFinish();
-
-    /**
-     * On fail.
-     *
-     * @param error the error
-     */
-    public abstract void onFail(String error, Throwable e);
+    }
 }

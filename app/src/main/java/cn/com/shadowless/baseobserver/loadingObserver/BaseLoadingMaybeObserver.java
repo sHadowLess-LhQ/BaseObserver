@@ -4,9 +4,6 @@ import android.app.Activity;
 
 import androidx.annotation.NonNull;
 
-import com.lxj.xpopup.XPopup;
-import com.lxj.xpopup.core.BasePopupView;
-
 import cn.com.shadowless.baseobserver.BaseMaybeObserver;
 import cn.com.shadowless.baseobserver.LoadingConfig;
 
@@ -18,16 +15,6 @@ import cn.com.shadowless.baseobserver.LoadingConfig;
  * @author sHadowLess
  */
 public abstract class BaseLoadingMaybeObserver<T> extends BaseMaybeObserver<T> {
-
-    /**
-     * The Loading popup view.
-     */
-    private final BasePopupView loadingPopupView;
-
-    /**
-     * The Time.
-     */
-    private int time = 500;
 
     /**
      * Instantiates a new Base life observer.
@@ -42,47 +29,32 @@ public abstract class BaseLoadingMaybeObserver<T> extends BaseMaybeObserver<T> {
     @Override
     public void start() {
         loadingPopupView.show();
-        time = loadingPopupView.getAnimationDuration() + 200;
-        onStart();
+        loadingTime = loadingPopupView.getAnimationDuration() + 200;
+        onStartEvent();
     }
 
     @Override
     public void success(T t) {
-        loadingPopupView.delayDismissWith(time, () -> onSuccess(t));
+        loadingPopupView.delayDismissWith(loadingTime, () -> onSuccessEvent(t));
     }
 
     @Override
     public void fail(String error, Throwable e) {
-        loadingPopupView.delayDismissWith(time, () -> onFail(error, e));
+        loadingPopupView.delayDismissWith(loadingTime, () -> onFailEvent(error, e));
     }
 
     @Override
     public void finish() {
-        onFinish();
+        onFinishEvent();
     }
 
-    /**
-     * On start.
-     */
-    public abstract void onStart();
+    @Override
+    public void onRefreshEvent(T t) {
 
-    /**
-     * On success.
-     *
-     * @param t the t
-     */
-    public abstract void onSuccess(T t);
+    }
 
-    /**
-     * On success.
-     */
-    public abstract void onFinish();
+    @Override
+    public void onLoadEvent(T t) {
 
-    /**
-     * On fail.
-     *
-     * @param error the error
-     * @param e     the e
-     */
-    public abstract void onFail(String error, Throwable e);
+    }
 }

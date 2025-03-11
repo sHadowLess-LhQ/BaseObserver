@@ -4,9 +4,6 @@ import android.app.Activity;
 
 import androidx.annotation.NonNull;
 
-import com.lxj.xpopup.XPopup;
-import com.lxj.xpopup.core.BasePopupView;
-
 import cn.com.shadowless.baseobserver.BaseCompletableObserver;
 import cn.com.shadowless.baseobserver.LoadingConfig;
 
@@ -17,16 +14,6 @@ import cn.com.shadowless.baseobserver.LoadingConfig;
  * @author sHadowLess
  */
 public abstract class BaseLoadingCompletableObserver extends BaseCompletableObserver {
-
-    /**
-     * The Loading popup view.
-     */
-    private final BasePopupView loadingPopupView;
-
-    /**
-     * The Time.
-     */
-    private int time = 500;
 
     /**
      * Instantiates a new Base life observer.
@@ -40,36 +27,33 @@ public abstract class BaseLoadingCompletableObserver extends BaseCompletableObse
 
     @Override
     public void start() {
-        onStart();
         loadingPopupView.show();
-        time = loadingPopupView.getAnimationDuration() + 200;
+        loadingTime = loadingPopupView.getAnimationDuration() + 200;
+        onStartEvent();
     }
 
     @Override
     public void fail(String error, Throwable e) {
-        loadingPopupView.delayDismissWith(time, () -> onFail(error, e));
+        loadingPopupView.delayDismissWith(loadingTime, () -> onFailEvent(error, e));
     }
 
     @Override
     public void finish() {
-        loadingPopupView.delayDismissWith(time, this::onFinish);
+        loadingPopupView.delayDismissWith(loadingTime, this::onFinishEvent);
     }
 
-    /**
-     * On start.
-     */
-    public abstract void onStart();
+    @Override
+    public void onRefreshEvent(Object o) {
 
-    /**
-     * On success.
-     */
-    public abstract void onFinish();
+    }
 
-    /**
-     * On fail.
-     *
-     * @param error the error
-     * @param e     the e
-     */
-    public abstract void onFail(String error, Throwable e);
+    @Override
+    public void onLoadEvent(Object o) {
+
+    }
+
+    @Override
+    public void onSuccessEvent(Object o) {
+
+    }
 }

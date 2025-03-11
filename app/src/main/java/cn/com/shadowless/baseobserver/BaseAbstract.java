@@ -9,12 +9,22 @@ import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.constant.RefreshState;
 
 /**
- * The type Base abstract.
+ * 观察者公共抽象封装规范（包含公共方法和变量）
  *
  * @param <T> the type parameter
  * @author sHadowLess
  */
-public abstract class BaseAbstract<T> {
+public abstract class BaseAbstract<T> implements ObserveEventSpecification<T> {
+
+    /**
+     * The Time.
+     */
+    protected int loadingTime = 500;
+
+    /**
+     * The Loading popup view.
+     */
+    protected BasePopupView loadingPopupView = null;
 
     /**
      * Gets loading pop view.
@@ -23,7 +33,7 @@ public abstract class BaseAbstract<T> {
      * @param config   the config
      * @return the loading pop view
      */
-    public BasePopupView getLoadingPopView(Activity activity, LoadingConfig config) {
+    protected BasePopupView getLoadingPopView(Activity activity, LoadingConfig config) {
         return new XPopup
                 .Builder(activity)
                 .isDestroyOnDismiss(config.isDestroyOnDismiss())
@@ -41,7 +51,7 @@ public abstract class BaseAbstract<T> {
      * @param state  the state
      * @param layout the layout
      */
-    public void autoFinishRefreshAndLoad(RefreshState state, SmartRefreshLayout layout) {
+    protected void autoFinishRefreshAndLoad(RefreshState state, SmartRefreshLayout layout) {
         if (state == RefreshState.Refreshing) {
             layout.finishRefresh();
         } else if (state == RefreshState.Loading) {

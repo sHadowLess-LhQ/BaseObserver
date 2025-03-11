@@ -36,35 +36,33 @@ public abstract class BaseFreshCompletableObserver extends BaseCompletableObserv
 
     @Override
     public void start() {
-        onStart();
+        onStartEvent();
     }
 
     @Override
     public void fail(String error, Throwable e) {
+        onFailEvent(error, e);
         this.autoFinishRefreshAndLoad(state, refreshLayout);
-        onFail(error, e);
     }
 
     @Override
     public void finish() {
+        onFinishEvent();
         this.autoFinishRefreshAndLoad(state, refreshLayout);
-        onFinish();
     }
 
-    /**
-     * On start.
-     */
-    protected abstract void onStart();
+    @Override
+    public void onSuccessEvent(Object o) {
 
-    /**
-     * On finish.
-     */
-    public abstract void onFinish();
+    }
 
-    /**
-     * On fail.
-     *
-     * @param error the error
-     */
-    public abstract void onFail(String error, Throwable e);
+    @Override
+    public void onRefreshEvent(Object o) {
+
+    }
+
+    @Override
+    public void onLoadEvent(Object o) {
+
+    }
 }

@@ -19,16 +19,6 @@ import cn.com.shadowless.baseobserver.LoadingConfig;
 public abstract class BaseLoadingObserver<T> extends BaseObserver<T> {
 
     /**
-     * The Loading popup view.
-     */
-    private final BasePopupView loadingPopupView;
-
-    /**
-     * The Time.
-     */
-    private int time = 500;
-
-    /**
      * Instantiates a new Base life observer.
      *
      * @param activity the activity
@@ -40,48 +30,33 @@ public abstract class BaseLoadingObserver<T> extends BaseObserver<T> {
 
     @Override
     public void start() {
-        onStart();
         loadingPopupView.show();
-        time = loadingPopupView.getAnimationDuration() + 200;
+        loadingTime = loadingPopupView.getAnimationDuration() + 200;
+        onStartEvent();
     }
 
     @Override
     public void success(T t) {
-        loadingPopupView.delayDismissWith(time, () -> onSuccess(t));
+        loadingPopupView.delayDismissWith(loadingTime, () -> onSuccessEvent(t));
     }
 
     @Override
     public void fail(String error, Throwable e) {
-        loadingPopupView.delayDismissWith(time, () -> onFail(error, e));
+        loadingPopupView.delayDismissWith(loadingTime, () -> onFailEvent(error, e));
     }
 
     @Override
     public void finish() {
-        onFinish();
+        onFinishEvent();
     }
 
-    /**
-     * On start.
-     */
-    public abstract void onStart();
+    @Override
+    public void onRefreshEvent(T t) {
 
-    /**
-     * On success.
-     *
-     * @param t the t
-     */
-    public abstract void onSuccess(T t);
+    }
 
-    /**
-     * On success.
-     */
-    public abstract void onFinish();
+    @Override
+    public void onLoadEvent(T t) {
 
-    /**
-     * On fail.
-     *
-     * @param error the error
-     * @param e     the e
-     */
-    public abstract void onFail(String error, Throwable e);
+    }
 }

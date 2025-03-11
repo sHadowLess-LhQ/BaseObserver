@@ -21,6 +21,7 @@ public interface BaseErrorFunction<R> extends Function<Throwable, R> {
      * Apply r.
      *
      * @param error the error
+     * @param e     the e
      * @return the r
      */
     R apply(String error, Throwable e);

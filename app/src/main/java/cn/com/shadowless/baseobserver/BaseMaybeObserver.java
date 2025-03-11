@@ -1,9 +1,6 @@
 package cn.com.shadowless.baseobserver;
 
-
-import android.app.Activity;
 import android.util.Log;
-
 
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.MaybeObserver;
