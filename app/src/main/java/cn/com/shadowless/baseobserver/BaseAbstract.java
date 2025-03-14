@@ -14,7 +14,7 @@ import com.scwang.smart.refresh.layout.constant.RefreshState;
  * @param <T> the type parameter
  * @author sHadowLess
  */
-public abstract class BaseAbstract<T> implements ObserveEventSpecification<T> {
+public abstract class BaseAbstract<T> {
 
     /**
      * The Time.
@@ -62,18 +62,14 @@ public abstract class BaseAbstract<T> implements ObserveEventSpecification<T> {
     /**
      * Start.
      */
-    protected void start() {
-
-    }
+    public abstract void start();
 
     /**
      * Success.
      *
      * @param t the t
      */
-    protected void success(T t) {
-
-    }
+    public abstract void success(T t);
 
     /**
      * Fail.
@@ -81,14 +77,10 @@ public abstract class BaseAbstract<T> implements ObserveEventSpecification<T> {
      * @param error the error
      * @param e     the e
      */
-    protected void fail(String error, Throwable e) {
-
-    }
+    public abstract void fail(String error, Throwable e);
 
     /**
      * Finish.
      */
-    protected void finish() {
-
-    }
+    public abstract void finish();
 }

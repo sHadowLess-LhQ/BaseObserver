@@ -10,6 +10,7 @@ import com.lxj.xpopup.core.BasePopupView;
 
 import cn.com.shadowless.baseobserver.BaseSingleObserver;
 import cn.com.shadowless.baseobserver.LoadingConfig;
+import cn.com.shadowless.baseobserver.ObserveEventSpecification;
 
 
 /**
@@ -18,7 +19,7 @@ import cn.com.shadowless.baseobserver.LoadingConfig;
  * @param <T> the type parameter
  * @author sHadowLess
  */
-public abstract class BaseLoadingSingleObserver<T> extends BaseSingleObserver<T> {
+public abstract class BaseLoadingSingleObserver<T> extends BaseSingleObserver<T> implements ObserveEventSpecification<T> {
 
     /**
      * Instantiates a new Base life observer.

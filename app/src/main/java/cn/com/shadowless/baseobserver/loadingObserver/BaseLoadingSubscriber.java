@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 
 import cn.com.shadowless.baseobserver.BaseSubscriber;
 import cn.com.shadowless.baseobserver.LoadingConfig;
+import cn.com.shadowless.baseobserver.ObserveEventSpecification;
 
 
 /**
@@ -14,7 +15,7 @@ import cn.com.shadowless.baseobserver.LoadingConfig;
  * @param <T> the type parameter
  * @author sHadowLess
  */
-public abstract class BaseLoadingSubscriber<T> extends BaseSubscriber<T> {
+public abstract class BaseLoadingSubscriber<T> extends BaseSubscriber<T> implements ObserveEventSpecification<T> {
 
     /**
      * Instantiates a new Base life observer.

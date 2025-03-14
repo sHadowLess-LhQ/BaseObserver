@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 
 import cn.com.shadowless.baseobserver.BaseCompletableObserver;
 import cn.com.shadowless.baseobserver.LoadingConfig;
+import cn.com.shadowless.baseobserver.ObserveEventSpecification;
 
 
 /**
@@ -13,7 +14,7 @@ import cn.com.shadowless.baseobserver.LoadingConfig;
  *
  * @author sHadowLess
  */
-public abstract class BaseLoadingCompletableObserver extends BaseCompletableObserver {
+public abstract class BaseLoadingCompletableObserver extends BaseCompletableObserver implements ObserveEventSpecification<Object> {
 
     /**
      * Instantiates a new Base life observer.

@@ -5,6 +5,7 @@ import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.constant.RefreshState;
 
 import cn.com.shadowless.baseobserver.BaseCompletableObserver;
+import cn.com.shadowless.baseobserver.ObserveEventSpecification;
 
 
 /**
@@ -12,7 +13,7 @@ import cn.com.shadowless.baseobserver.BaseCompletableObserver;
  *
  * @author sHadowLess
  */
-public abstract class BaseFreshCompletableObserver extends BaseCompletableObserver {
+public abstract class BaseFreshCompletableObserver extends BaseCompletableObserver implements ObserveEventSpecification<Object> {
 
     /**
      * The Loading popup view.

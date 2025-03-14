@@ -5,6 +5,7 @@ import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.constant.RefreshState;
 
 import cn.com.shadowless.baseobserver.BaseSingleObserver;
+import cn.com.shadowless.baseobserver.ObserveEventSpecification;
 
 
 /**
@@ -13,7 +14,7 @@ import cn.com.shadowless.baseobserver.BaseSingleObserver;
  * @param <T> the type parameter
  * @author sHadowLess
  */
-public abstract class BaseFreshSingleObserver<T> extends BaseSingleObserver<T> {
+public abstract class BaseFreshSingleObserver<T> extends BaseSingleObserver<T> implements ObserveEventSpecification<T> {
 
     /**
      * The Loading popup view.
