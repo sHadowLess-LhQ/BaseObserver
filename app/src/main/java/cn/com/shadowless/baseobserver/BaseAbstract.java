@@ -62,14 +62,18 @@ public abstract class BaseAbstract<T> implements ObserveEventSpecification<T> {
     /**
      * Start.
      */
-    public abstract void start();
+    protected void start() {
+
+    }
 
     /**
      * Success.
      *
      * @param t the t
      */
-    public abstract void success(T t);
+    protected void success(T t) {
+
+    }
 
     /**
      * Fail.
@@ -77,10 +81,14 @@ public abstract class BaseAbstract<T> implements ObserveEventSpecification<T> {
      * @param error the error
      * @param e     the e
      */
-    public abstract void fail(String error, Throwable e);
+    protected void fail(String error, Throwable e) {
+
+    }
 
     /**
      * Finish.
      */
-    public abstract void finish();
+    protected void finish() {
+
+    }
 }
