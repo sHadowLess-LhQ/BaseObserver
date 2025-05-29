@@ -37,11 +37,11 @@ a、克隆引入
 
 b、远程仓库引入
 
-[[![](https://jitpack.io/v/com.gitee.shadowless_lhq/base-observer.svg)](https://jitpack.io/#com.gitee.shadowless_lhq/base-observer)
+[![](https://jitpack.io/v/sHadowLess-LhQ/BaseObserver.svg)](https://jitpack.io/#sHadowLess-LhQ/BaseObserver)
 
 ```
      dependencies {
-        implementation 'com.gitee.shadowless_lhq:base-observer:Tag'
+        implementation 'com.github.sHadowLess-LhQ:BaseObserver:Tag'
         implementation 'io.reactivex.rxjava3:rxjava:3.1.8'
         //如需使用loadingObserver包下的类，请额外依赖
         implementation 'com.github.li-xiaojun:XPopup:2.10.0'
