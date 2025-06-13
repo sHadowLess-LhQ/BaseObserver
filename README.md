@@ -4,6 +4,8 @@
 
 个人自用Rxjava观察者封装
 
+### 【注】：3.0变更的包结构，并引入Kotlin扩展函数方便使用，若不用Kotlin开发，可用老版本
+
 #### 安装教程
 
 Step 1. 添加maven仓库地址和配置
@@ -37,16 +39,19 @@ a、克隆引入
 
 b、远程仓库引入
 
-[![](https://jitpack.io/v/sHadowLess-LhQ/BaseObserver.svg)](https://jitpack.io/#sHadowLess-LhQ/BaseObserver)
+[[![](https://jitpack.io/v/com.gitee.shadowless_lhq/base-observer.svg)](https://jitpack.io/#com.gitee.shadowless_lhq/base-observer)
 
 ```
      dependencies {
-        implementation 'com.github.sHadowLess-LhQ:BaseObserver:Tag'
+        //根依赖
+        implementation 'com.gitee.shadowless_lhq:base-observer:Tag'
         implementation 'io.reactivex.rxjava3:rxjava:3.1.8'
         //如需使用loadingObserver包下的类，请额外依赖
         implementation 'com.github.li-xiaojun:XPopup:2.10.0'
         //如需使用freshObserver包下的类，请额外依赖
         implementation 'io.github.scwang90:refresh-layout-kernel:2.1.0'
+        //3.0补充
+        implementation 'com.github.liujingxing.rxlife:rxlife-rxjava3:2.2.2'
     }
 ```
 
@@ -76,3 +81,5 @@ c、混淆规则
 #### 使用说明
 
 ## 同RxJava里的观察者同样的使用方式
+
+## Kotlin扩展函数，详细请看BaseObserverExt
