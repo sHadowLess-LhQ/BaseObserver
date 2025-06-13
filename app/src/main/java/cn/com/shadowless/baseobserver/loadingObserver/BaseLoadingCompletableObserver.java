@@ -4,7 +4,7 @@ import android.app.Activity;
 
 import androidx.annotation.NonNull;
 
-import cn.com.shadowless.baseobserver.BaseCompletableObserver;
+import cn.com.shadowless.baseobserver.base.BaseCompletableObserver;
 import cn.com.shadowless.baseobserver.LoadingConfig;
 import cn.com.shadowless.baseobserver.ObserveEventSpecification;
 

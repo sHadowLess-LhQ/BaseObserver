@@ -4,7 +4,7 @@ import android.app.Activity;
 
 import androidx.annotation.NonNull;
 
-import cn.com.shadowless.baseobserver.BaseMaybeObserver;
+import cn.com.shadowless.baseobserver.base.BaseMaybeObserver;
 import cn.com.shadowless.baseobserver.LoadingConfig;
 import cn.com.shadowless.baseobserver.ObserveEventSpecification;
 

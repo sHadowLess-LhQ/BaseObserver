@@ -4,18 +4,17 @@ import android.app.Activity;
 
 import androidx.annotation.NonNull;
 
-import cn.com.shadowless.baseobserver.BaseSubscriber;
 import cn.com.shadowless.baseobserver.LoadingConfig;
 import cn.com.shadowless.baseobserver.ObserveEventSpecification;
-
+import cn.com.shadowless.baseobserver.base.BaseFlowable;
 
 /**
- * The type Base observer.
+ * The type Base loading flowable.
  *
  * @param <T> the type parameter
  * @author sHadowLess
  */
-public abstract class BaseLoadingSubscriber<T> extends BaseSubscriber<T> implements ObserveEventSpecification<T> {
+public abstract class BaseLoadingFlowable<T> extends BaseFlowable<T> implements ObserveEventSpecification<T> {
 
     /**
      * Instantiates a new Base life observer.
@@ -23,7 +22,7 @@ public abstract class BaseLoadingSubscriber<T> extends BaseSubscriber<T> impleme
      * @param activity the activity
      * @param config   the config
      */
-    public BaseLoadingSubscriber(@NonNull Activity activity, @NonNull LoadingConfig config) {
+    public BaseLoadingFlowable(@NonNull Activity activity, @NonNull LoadingConfig config) {
         loadingPopupView = this.getLoadingPopView(activity, config);
     }
 
@@ -58,4 +57,5 @@ public abstract class BaseLoadingSubscriber<T> extends BaseSubscriber<T> impleme
     public void onLoadEvent(T t) {
 
     }
+
 }

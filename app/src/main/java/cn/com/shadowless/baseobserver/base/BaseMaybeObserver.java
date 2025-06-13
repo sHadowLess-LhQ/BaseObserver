@@ -1,9 +1,10 @@
-package cn.com.shadowless.baseobserver;
-
+package cn.com.shadowless.baseobserver.base;
 
 import android.util.Log;
 
-import io.reactivex.rxjava3.core.Observer;
+import cn.com.shadowless.baseobserver.BaseAbstract;
+import io.reactivex.rxjava3.annotations.NonNull;
+import io.reactivex.rxjava3.core.MaybeObserver;
 import io.reactivex.rxjava3.disposables.Disposable;
 
 /**
@@ -12,7 +13,7 @@ import io.reactivex.rxjava3.disposables.Disposable;
  * @param <T> the type parameter
  * @author sHadowLess
  */
-public abstract class BaseObserver<T> extends BaseAbstract<T> implements Observer<T> {
+public abstract class BaseMaybeObserver<T> extends BaseAbstract<T> implements MaybeObserver<T> {
 
     @Override
     public void onSubscribe(Disposable d) {
@@ -20,7 +21,7 @@ public abstract class BaseObserver<T> extends BaseAbstract<T> implements Observe
     }
 
     @Override
-    public void onNext(T t) {
+    public void onSuccess(@NonNull T t) {
         success(t);
     }
 

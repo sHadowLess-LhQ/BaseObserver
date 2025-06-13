@@ -21,6 +21,7 @@ public interface BaseErrorConsumer extends Consumer<Throwable> {
      *
      * @param error the error
      * @param e     the e
+     * @throws Throwable the throwable
      */
-    void error(String error, Throwable e);
+    void error(String error, Throwable e) throws Throwable;
 }

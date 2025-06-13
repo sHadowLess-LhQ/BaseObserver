@@ -4,7 +4,7 @@ package cn.com.shadowless.baseobserver.freshObserber;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.constant.RefreshState;
 
-import cn.com.shadowless.baseobserver.BaseSingleObserver;
+import cn.com.shadowless.baseobserver.base.BaseSingleObserver;
 import cn.com.shadowless.baseobserver.ObserveEventSpecification;
 
 

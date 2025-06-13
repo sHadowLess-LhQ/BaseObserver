@@ -5,10 +5,7 @@ import android.app.Activity;
 import androidx.annotation.NonNull;
 
 
-import com.lxj.xpopup.XPopup;
-import com.lxj.xpopup.core.BasePopupView;
-
-import cn.com.shadowless.baseobserver.BaseSingleObserver;
+import cn.com.shadowless.baseobserver.base.BaseSingleObserver;
 import cn.com.shadowless.baseobserver.LoadingConfig;
 import cn.com.shadowless.baseobserver.ObserveEventSpecification;
 

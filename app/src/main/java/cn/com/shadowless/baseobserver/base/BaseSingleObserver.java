@@ -1,7 +1,8 @@
-package cn.com.shadowless.baseobserver;
+package cn.com.shadowless.baseobserver.base;
 
 import android.util.Log;
 
+import cn.com.shadowless.baseobserver.BaseAbstract;
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.SingleObserver;
 import io.reactivex.rxjava3.disposables.Disposable;

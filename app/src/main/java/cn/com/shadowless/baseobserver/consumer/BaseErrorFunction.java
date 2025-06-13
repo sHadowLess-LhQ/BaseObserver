@@ -23,6 +23,7 @@ public interface BaseErrorFunction<R> extends Function<Throwable, R> {
      * @param error the error
      * @param e     the e
      * @return the r
+     * @throws Throwable the throwable
      */
-    R apply(String error, Throwable e);
+    R apply(String error, Throwable e) throws Throwable;
 }

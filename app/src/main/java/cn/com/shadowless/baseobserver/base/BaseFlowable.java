@@ -1,21 +1,22 @@
-package cn.com.shadowless.baseobserver;
-
+package cn.com.shadowless.baseobserver.base;
 
 import android.util.Log;
 
-import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 
+import cn.com.shadowless.baseobserver.BaseAbstract;
+import io.reactivex.rxjava3.annotations.NonNull;
+import io.reactivex.rxjava3.core.FlowableSubscriber;
+
 /**
- * The type Base observer.
+ * The type Base flowable.
  *
  * @param <T> the type parameter
- * @author sHadowLess
  */
-public abstract class BaseSubscriber<T> extends BaseAbstract<T> implements Subscriber<T> {
+public abstract class BaseFlowable<T> extends BaseAbstract<T> implements FlowableSubscriber<T> {
 
     @Override
-    public void onSubscribe(Subscription s) {
+    public void onSubscribe(@NonNull Subscription s) {
         start();
     }
 

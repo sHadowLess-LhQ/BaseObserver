@@ -1,20 +1,18 @@
 package cn.com.shadowless.baseobserver.freshObserber;
 
-
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.constant.RefreshState;
 
-import cn.com.shadowless.baseobserver.BaseSubscriber;
 import cn.com.shadowless.baseobserver.ObserveEventSpecification;
-
+import cn.com.shadowless.baseobserver.base.BaseFlowable;
 
 /**
- * The type Base observer.
+ * The type Base fresh flowable.
  *
  * @param <T> the type parameter
  * @author sHadowLess
  */
-public abstract class BaseFreshSubscriber<T> extends BaseSubscriber<T> implements ObserveEventSpecification<T> {
+public abstract class BaseFreshFlowable<T> extends BaseFlowable<T> implements ObserveEventSpecification<T> {
 
     /**
      * The Loading popup view.
@@ -22,20 +20,20 @@ public abstract class BaseFreshSubscriber<T> extends BaseSubscriber<T> implement
     private final SmartRefreshLayout refreshLayout;
 
     /**
-     * The Page.
+     * The State.
      */
     private final RefreshState state;
-
 
     /**
      * Instantiates a new Base fresh observer.
      *
      * @param refreshLayout the refresh layout
      */
-    public BaseFreshSubscriber(SmartRefreshLayout refreshLayout) {
+    public BaseFreshFlowable(SmartRefreshLayout refreshLayout) {
         this.refreshLayout = refreshLayout;
         this.state = refreshLayout.getState();
     }
+
 
     @Override
     public void start() {
@@ -53,18 +51,19 @@ public abstract class BaseFreshSubscriber<T> extends BaseSubscriber<T> implement
 
     @Override
     public void fail(String error, Throwable e) {
-        this.autoFinishRefreshAndLoad(state, refreshLayout);
         onFailEvent(error, e);
+        this.autoFinishRefreshAndLoad(state, refreshLayout);
     }
 
     @Override
     public void finish() {
-        this.autoFinishRefreshAndLoad(state, refreshLayout);
         onFinishEvent();
+        this.autoFinishRefreshAndLoad(state, refreshLayout);
     }
 
     @Override
     public void onSuccessEvent(T t) {
 
     }
+
 }

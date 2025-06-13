@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
 }
 
 android {
@@ -31,9 +32,10 @@ android {
 
 dependencies {
 
+    compileOnly 'androidx.core:core-ktx:+'
     compileOnly 'androidx.appcompat:appcompat:1.2.0'
     compileOnly 'com.github.li-xiaojun:XPopup:2.10.0'
     compileOnly 'io.github.scwang90:refresh-layout-kernel:2.1.0'
-
-    api 'io.reactivex.rxjava3:rxjava:3.1.8'
+    compileOnly 'io.reactivex.rxjava3:rxjava:3.1.8'
+    compileOnly 'com.github.liujingxing.rxlife:rxlife-rxjava3:2.2.2'
 }
