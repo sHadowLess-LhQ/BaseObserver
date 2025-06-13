@@ -2,6 +2,8 @@ package cn.com.shadowless.baseobserver
 
 import android.app.Activity
 import cn.com.shadowless.baseobserver.base.BaseCompletableObserver
+import cn.com.shadowless.baseobserver.base.BaseErrorConsumer
+import cn.com.shadowless.baseobserver.base.BaseErrorFunction
 import cn.com.shadowless.baseobserver.base.BaseFlowable
 import cn.com.shadowless.baseobserver.base.BaseMaybeObserver
 import cn.com.shadowless.baseobserver.base.BaseObserver
@@ -604,4 +606,12 @@ inline fun <T : Any> FlowableLife<T>.subscribeByFlowable(
 
         override fun onFinishEvent() = onFinish()
     })
+}
+
+fun onFailConsumer(consumer: (String?, Throwable?) -> Unit): BaseErrorConsumer {
+    return BaseErrorConsumer { error, e -> consumer(error, e) }
+}
+
+fun <R : Any> onFailFunction(function: (String?, Throwable?) -> R): BaseErrorFunction<R> {
+    return BaseErrorFunction<R> { error, e -> function(error, e) }
 }

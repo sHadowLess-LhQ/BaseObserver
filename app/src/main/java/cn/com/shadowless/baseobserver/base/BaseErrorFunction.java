@@ -1,4 +1,4 @@
-package cn.com.shadowless.baseobserver.consumer;
+package cn.com.shadowless.baseobserver.base;
 
 import android.util.Log;
 
