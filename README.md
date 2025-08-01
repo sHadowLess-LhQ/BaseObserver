@@ -39,7 +39,7 @@ a、克隆引入
 
 b、远程仓库引入
 
-[[![](https://jitpack.io/v/com.gitee.shadowless_lhq/base-observer.svg)](https://jitpack.io/#com.gitee.shadowless_lhq/base-observer)
+[![](https://jitpack.io/v/sHadowLess-LhQ/BaseObserver.svg)](https://jitpack.io/#sHadowLess-LhQ/BaseObserver)
 
 ```
      dependencies {
