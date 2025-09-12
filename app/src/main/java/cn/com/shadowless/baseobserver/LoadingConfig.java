@@ -1,44 +1,45 @@
 package cn.com.shadowless.baseobserver;
 
 /**
- * The type Loading view bean.
+ * 加载配置类
  *
  * @author sHadowLess
  */
 public class LoadingConfig {
     /**
-     * The Is view model.
+     * 是否为视图模式
      */
     private boolean isViewModel;
     /**
-     * The Can back cancel.
+     * 是否可以通过返回键取消
      */
     private boolean canBackCancel;
     /**
-     * The Can out side cancel.
+     * 是否可以通过点击外部取消
      */
     private boolean canOutSideCancel;
     /**
-     * The Has blur bg.
+     * 是否有模糊背景
      */
     private boolean hasBlurBg;
     /**
-     * The Has shadow.
+     * 是否有阴影背景
      */
     private boolean hasShadow;
     /**
-     * The Is destroy on dismiss.
+     * 是否在消失时销毁
      */
     private boolean isDestroyOnDismiss;
     /**
-     * The Load name.
+     * 加载名称
      */
     private String loadName;
 
     /**
-     * Sets view model.
+     * 设置是否为视图模式
      *
-     * @param viewModel the view model
+     * @param viewModel 是否为视图模式
+     * @return LoadingConfig实例
      */
     public LoadingConfig setViewModel(boolean viewModel) {
         this.isViewModel = viewModel;
@@ -46,9 +47,10 @@ public class LoadingConfig {
     }
 
     /**
-     * Sets can back cancel.
+     * 设置是否可以通过返回键取消
      *
-     * @param canBackCancel the can back cancel
+     * @param canBackCancel 是否可以通过返回键取消
+     * @return LoadingConfig实例
      */
     public LoadingConfig setCanBackCancel(boolean canBackCancel) {
         this.canBackCancel = canBackCancel;
@@ -56,9 +58,10 @@ public class LoadingConfig {
     }
 
     /**
-     * Sets can out side cancel.
+     * 设置是否可以通过点击外部取消
      *
-     * @param canOutSideCancel the can out side cancel
+     * @param canOutSideCancel 是否可以通过点击外部取消
+     * @return LoadingConfig实例
      */
     public LoadingConfig setCanOutSideCancel(boolean canOutSideCancel) {
         this.canOutSideCancel = canOutSideCancel;
@@ -66,9 +69,10 @@ public class LoadingConfig {
     }
 
     /**
-     * Sets has blur bg.
+     * 设置是否有模糊背景
      *
-     * @param hasBlurBg the has blur bg
+     * @param hasBlurBg 是否有模糊背景
+     * @return LoadingConfig实例
      */
     public LoadingConfig setHasBlurBg(boolean hasBlurBg) {
         this.hasBlurBg = hasBlurBg;
@@ -76,9 +80,10 @@ public class LoadingConfig {
     }
 
     /**
-     * Sets has shadow.
+     * 设置是否有阴影背景
      *
-     * @param hasShadow the has shadow
+     * @param hasShadow 是否有阴影背景
+     * @return LoadingConfig实例
      */
     public LoadingConfig setHasShadow(boolean hasShadow) {
         this.hasShadow = hasShadow;
@@ -86,9 +91,10 @@ public class LoadingConfig {
     }
 
     /**
-     * Sets destroy on dismiss.
+     * 设置是否在消失时销毁
      *
-     * @param destroyOnDismiss the destroy on dismiss
+     * @param destroyOnDismiss 是否在消失时销毁
+     * @return LoadingConfig实例
      */
     public LoadingConfig setDestroyOnDismiss(boolean destroyOnDismiss) {
         isDestroyOnDismiss = destroyOnDismiss;
@@ -96,9 +102,10 @@ public class LoadingConfig {
     }
 
     /**
-     * Sets load name.
+     * 设置加载名称
      *
-     * @param loadName the load name
+     * @param loadName 加载名称
+     * @return LoadingConfig实例
      */
     public LoadingConfig setLoadName(String loadName) {
         this.loadName = loadName;
@@ -106,78 +113,78 @@ public class LoadingConfig {
     }
 
     /**
-     * Is view model boolean.
+     * 获取是否为视图模式
      *
-     * @return the boolean
+     * @return 是否为视图模式
      */
     public boolean isViewModel() {
         return isViewModel;
     }
 
     /**
-     * Is can back cancel boolean.
+     * 获取是否可以通过返回键取消
      *
-     * @return the boolean
+     * @return 是否可以通过返回键取消
      */
     public boolean isCanBackCancel() {
         return canBackCancel;
     }
 
     /**
-     * Is can out side cancel boolean.
+     * 获取是否可以通过点击外部取消
      *
-     * @return the boolean
+     * @return 是否可以通过点击外部取消
      */
     public boolean isCanOutSideCancel() {
         return canOutSideCancel;
     }
 
     /**
-     * Is has blur bg boolean.
+     * 获取是否有模糊背景
      *
-     * @return the boolean
+     * @return 是否有模糊背景
      */
     public boolean isHasBlurBg() {
         return hasBlurBg;
     }
 
     /**
-     * Is has shadow boolean.
+     * 获取是否有阴影背景
      *
-     * @return the boolean
+     * @return 是否有阴影背景
      */
     public boolean isHasShadow() {
         return hasShadow;
     }
 
     /**
-     * Is destroy on dismiss boolean.
+     * 获取是否在消失时销毁
      *
-     * @return the boolean
+     * @return 是否在消失时销毁
      */
     public boolean isDestroyOnDismiss() {
         return isDestroyOnDismiss;
     }
 
     /**
-     * Gets load name.
+     * 获取加载名称
      *
-     * @return the load name
+     * @return 加载名称
      */
     public String getLoadName() {
         return loadName;
     }
 
     /**
-     * 构造
+     * 构造函数
      *
-     * @param isViewModel        the is view model
-     * @param canBackCancel      the can back cancel
-     * @param canOutSideCancel   the can out side cancel
-     * @param hasBlurBg          the has blur bg
-     * @param hasShadow          the has shadow
-     * @param isDestroyOnDismiss the is destroy on dismiss
-     * @param loadName           the load name
+     * @param isViewModel        是否为视图模式
+     * @param canBackCancel      是否可以通过返回键取消
+     * @param canOutSideCancel   是否可以通过点击外部取消
+     * @param hasBlurBg          是否有模糊背景
+     * @param hasShadow          是否有阴影背景
+     * @param isDestroyOnDismiss 是否在消失时销毁
+     * @param loadName           加载名称
      */
     public LoadingConfig(boolean isViewModel, boolean canBackCancel, boolean canOutSideCancel, boolean hasBlurBg, boolean hasShadow, boolean isDestroyOnDismiss, String loadName) {
         this.isViewModel = isViewModel;
@@ -190,53 +197,53 @@ public class LoadingConfig {
     }
 
     /**
-     * 构造者
+     * 获取构造器
      *
-     * @return the net utils . net utils builder
+     * @return ConfigBuilder构造器
      */
     public static ConfigBuilder builder() {
         return new ConfigBuilder();
     }
 
     /**
-     * 构造者实体
+     * 构造器实体类
      */
     public static class ConfigBuilder {
         /**
-         * The Is view model.
+         * 是否为视图模式
          */
         private boolean isViewModel;
         /**
-         * The Can back cancel.
+         * 是否可以通过返回键取消
          */
         private boolean canBackCancel;
         /**
-         * The Can out side cancel.
+         * 是否可以通过点击外部取消
          */
         private boolean canOutSideCancel;
         /**
-         * The Has blur bg.
+         * 是否有模糊背景
          */
         private boolean hasBlurBg;
         /**
-         * The Has shadow.
+         * 是否有阴影背景
          */
         private boolean hasShadow;
 
         /**
-         * The Is destroy on dismiss.
+         * 是否在消失时销毁
          */
         private boolean isDestroyOnDismiss;
         /**
-         * The Load name.
+         * 加载名称
          */
         private String loadName;
 
         /**
-         * Is view model config builder.
+         * 设置是否为视图模式
          *
-         * @param isViewModel the is view model
-         * @return the config builder
+         * @param isViewModel 是否为视图模式
+         * @return ConfigBuilder构造器
          */
         public ConfigBuilder isViewModel(boolean isViewModel) {
             this.isViewModel = isViewModel;
@@ -244,10 +251,10 @@ public class LoadingConfig {
         }
 
         /**
-         * Is destroy on dismiss config builder.
+         * 设置是否在消失时销毁
          *
-         * @param isDestroyOnDismiss the is destroy on dismiss
-         * @return the config builder
+         * @param isDestroyOnDismiss 是否在消失时销毁
+         * @return ConfigBuilder构造器
          */
         public ConfigBuilder isDestroyOnDismiss(boolean isDestroyOnDismiss) {
             this.isDestroyOnDismiss = isDestroyOnDismiss;
@@ -256,10 +263,10 @@ public class LoadingConfig {
 
 
         /**
-         * Can back cancel config builder.
+         * 设置是否可以通过返回键取消
          *
-         * @param canBackCancel the can back cancel
-         * @return the config builder
+         * @param canBackCancel 是否可以通过返回键取消
+         * @return ConfigBuilder构造器
          */
         public ConfigBuilder canBackCancel(boolean canBackCancel) {
             this.canBackCancel = canBackCancel;
@@ -267,10 +274,10 @@ public class LoadingConfig {
         }
 
         /**
-         * Can out side cancel config builder.
+         * 设置是否可以通过点击外部取消
          *
-         * @param canOutSideCancel the can out side cancel
-         * @return the config builder
+         * @param canOutSideCancel 是否可以通过点击外部取消
+         * @return ConfigBuilder构造器
          */
         public ConfigBuilder canOutSideCancel(boolean canOutSideCancel) {
             this.canOutSideCancel = canOutSideCancel;
@@ -278,10 +285,10 @@ public class LoadingConfig {
         }
 
         /**
-         * Has blur bg config builder.
+         * 设置是否有模糊背景
          *
-         * @param hasBlurBg the has blur bg
-         * @return the config builder
+         * @param hasBlurBg 是否有模糊背景
+         * @return ConfigBuilder构造器
          */
         public ConfigBuilder hasBlurBg(boolean hasBlurBg) {
             this.hasBlurBg = hasBlurBg;
@@ -289,10 +296,10 @@ public class LoadingConfig {
         }
 
         /**
-         * Has shadow config builder.
+         * 设置是否有阴影背景
          *
-         * @param hasShadow the has shadow
-         * @return the config builder
+         * @param hasShadow 是否有阴影背景
+         * @return ConfigBuilder构造器
          */
         public ConfigBuilder hasShadow(boolean hasShadow) {
             this.hasShadow = hasShadow;
@@ -300,10 +307,10 @@ public class LoadingConfig {
         }
 
         /**
-         * Load name config builder.
+         * 设置加载名称
          *
-         * @param loadName the load name
-         * @return the config builder
+         * @param loadName 加载名称
+         * @return ConfigBuilder构造器
          */
         public ConfigBuilder loadName(String loadName) {
             this.loadName = loadName;
@@ -311,9 +318,9 @@ public class LoadingConfig {
         }
 
         /**
-         * Build loading config.
+         * 构建LoadingConfig实例
          *
-         * @return the loading config
+         * @return LoadingConfig实例
          */
         public LoadingConfig build() {
             return new LoadingConfig(this.isViewModel, this.canBackCancel, this.canOutSideCancel, this.hasBlurBg, this.hasShadow, this.isDestroyOnDismiss, this.loadName);

@@ -11,18 +11,18 @@ import cn.com.shadowless.baseobserver.ObserveEventSpecification;
 
 
 /**
- * The type Base observer.
+ * 基础加载Single观察者抽象类
  *
- * @param <T> the type parameter
+ * @param <T> 泛型参数
  * @author sHadowLess
  */
 public abstract class BaseLoadingSingleObserver<T> extends BaseSingleObserver<T> implements ObserveEventSpecification<T> {
 
     /**
-     * Instantiates a new Base life observer.
+     * 构造函数
      *
-     * @param activity the activity
-     * @param config   the config
+     * @param activity Activity上下文
+     * @param config   加载配置
      */
     public BaseLoadingSingleObserver(@NonNull Activity activity, @NonNull LoadingConfig config) {
         loadingPopupView = this.getLoadingPopView(activity, config);

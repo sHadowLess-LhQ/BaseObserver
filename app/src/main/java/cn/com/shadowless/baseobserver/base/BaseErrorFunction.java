@@ -5,9 +5,9 @@ import android.util.Log;
 import io.reactivex.rxjava3.functions.Function;
 
 /**
- * The type Base error function.
+ * 基础错误函数接口
  *
- * @param <R> the type parameter
+ * @param <R> 返回值类型
  * @author sHadowLess
  */
 public interface BaseErrorFunction<R> extends Function<Throwable, R> {
@@ -18,12 +18,12 @@ public interface BaseErrorFunction<R> extends Function<Throwable, R> {
     }
 
     /**
-     * Apply r.
+     * 应用处理方法
      *
-     * @param error the error
-     * @param e     the e
-     * @return the r
-     * @throws Throwable the throwable
+     * @param error 错误信息
+     * @param e     异常对象
+     * @return 处理结果
+     * @throws Throwable 异常
      */
     R apply(String error, Throwable e) throws Throwable;
 }

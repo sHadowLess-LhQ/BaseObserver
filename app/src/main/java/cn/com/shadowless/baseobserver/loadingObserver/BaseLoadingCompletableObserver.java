@@ -10,17 +10,17 @@ import cn.com.shadowless.baseobserver.ObserveEventSpecification;
 
 
 /**
- * The type Base observer.
+ * 基础加载Completable观察者抽象类
  *
  * @author sHadowLess
  */
 public abstract class BaseLoadingCompletableObserver extends BaseCompletableObserver implements ObserveEventSpecification<Object> {
 
     /**
-     * Instantiates a new Base life observer.
+     * 构造函数
      *
-     * @param activity the activity
-     * @param config   the config
+     * @param activity Activity上下文
+     * @param config   加载配置
      */
     public BaseLoadingCompletableObserver(@NonNull Activity activity, @NonNull LoadingConfig config) {
         loadingPopupView = this.getLoadingPopView(activity, config);

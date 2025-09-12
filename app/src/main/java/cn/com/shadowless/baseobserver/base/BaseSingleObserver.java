@@ -8,9 +8,9 @@ import io.reactivex.rxjava3.core.SingleObserver;
 import io.reactivex.rxjava3.disposables.Disposable;
 
 /**
- * The type Base observer.
+ * 基础Single观察者抽象类
  *
- * @param <T> the type parameter
+ * @param <T> 泛型参数
  * @author sHadowLess
  */
 public abstract class BaseSingleObserver<T> extends BaseAbstract<T> implements SingleObserver<T> {

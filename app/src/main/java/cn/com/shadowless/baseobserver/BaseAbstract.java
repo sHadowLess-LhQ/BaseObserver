@@ -11,27 +11,27 @@ import com.scwang.smart.refresh.layout.constant.RefreshState;
 /**
  * 观察者公共抽象封装规范（包含公共方法和变量）
  *
- * @param <T> the type parameter
+ * @param <T> 泛型参数
  * @author sHadowLess
  */
 public abstract class BaseAbstract<T> {
 
     /**
-     * The Time.
+     * 加载时间（毫秒）
      */
     protected int loadingTime = 500;
 
     /**
-     * The Loading popup view.
+     * 加载弹窗视图
      */
     protected BasePopupView loadingPopupView = null;
 
     /**
-     * Gets loading pop view.
+     * 获取加载弹窗视图
      *
-     * @param activity the activity
-     * @param config   the config
-     * @return the loading pop view
+     * @param activity Activity上下文
+     * @param config   加载配置
+     * @return 加载弹窗视图
      */
     protected BasePopupView getLoadingPopView(Activity activity, LoadingConfig config) {
         return new XPopup
@@ -46,10 +46,10 @@ public abstract class BaseAbstract<T> {
     }
 
     /**
-     * Auto finish refresh and load.
+     * 自动完成刷新或加载操作
      *
-     * @param state  the state
-     * @param layout the layout
+     * @param state  刷新状态
+     * @param layout 刷新布局
      */
     protected void autoFinishRefreshAndLoad(RefreshState state, SmartRefreshLayout layout) {
         if (state == RefreshState.Refreshing) {
@@ -60,27 +60,27 @@ public abstract class BaseAbstract<T> {
     }
 
     /**
-     * Start.
+     * 开始事件
      */
     public abstract void start();
 
     /**
-     * Success.
+     * 成功事件
      *
-     * @param t the t
+     * @param t 数据对象
      */
     public abstract void success(T t);
 
     /**
-     * Fail.
+     * 失败事件
      *
-     * @param error the error
-     * @param e     the e
+     * @param error 错误信息
+     * @param e     异常对象
      */
     public abstract void fail(String error, Throwable e);
 
     /**
-     * Finish.
+     * 完成事件
      */
     public abstract void finish();
 }

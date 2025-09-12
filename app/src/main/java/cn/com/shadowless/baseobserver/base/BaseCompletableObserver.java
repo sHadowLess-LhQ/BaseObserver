@@ -8,7 +8,7 @@ import io.reactivex.rxjava3.core.CompletableObserver;
 import io.reactivex.rxjava3.disposables.Disposable;
 
 /**
- * The type Base observer.
+ * 基础Completable观察者抽象类
  *
  * @author sHadowLess
  */

@@ -9,26 +9,26 @@ import cn.com.shadowless.baseobserver.ObserveEventSpecification;
 
 
 /**
- * The type Base observer.
+ * 基础刷新Completable观察者抽象类
  *
  * @author sHadowLess
  */
 public abstract class BaseFreshCompletableObserver extends BaseCompletableObserver implements ObserveEventSpecification<Object> {
 
     /**
-     * The Loading popup view.
+     * 刷新布局
      */
     private final SmartRefreshLayout refreshLayout;
 
     /**
-     * The Page.
+     * 刷新状态
      */
     private final RefreshState state;
 
     /**
-     * Instantiates a new Base fresh observer.
+     * 构造函数
      *
-     * @param refreshLayout the refresh layout
+     * @param refreshLayout 刷新布局
      */
     public BaseFreshCompletableObserver(SmartRefreshLayout refreshLayout) {
         this.refreshLayout = refreshLayout;

@@ -3,47 +3,47 @@ package cn.com.shadowless.baseobserver;
 /**
  * 观察者监听抽象封装规范
  *
- * @param <T> the type parameter
+ * @param <T> 泛型参数
  * @author sHadowLess
  */
 public interface ObserveEventSpecification<T> {
 
     /**
-     * On start.
+     * 开始事件
      */
     void onStartEvent();
 
     /**
-     * Finish refresh.
+     * 刷新事件
      *
-     * @param t the t
+     * @param t 数据对象
      */
     void onRefreshEvent(T t);
 
     /**
-     * Finish load.
+     * 加载事件
      *
-     * @param t the t
+     * @param t 数据对象
      */
     void onLoadEvent(T t);
 
     /**
-     * On success.
+     * 成功事件
      *
-     * @param t the t
+     * @param t 数据对象
      */
     void onSuccessEvent(T t);
 
     /**
-     * On finish.
+     * 完成事件
      */
     void onFinishEvent();
 
     /**
-     * On fail.
+     * 失败事件
      *
-     * @param error the error
-     * @param e     the e
+     * @param error 错误信息
+     * @param e     异常对象
      */
     void onFailEvent(String error, Throwable e);
 }

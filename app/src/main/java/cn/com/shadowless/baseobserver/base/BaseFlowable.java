@@ -9,9 +9,9 @@ import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.FlowableSubscriber;
 
 /**
- * The type Base flowable.
+ * 基础Flowable订阅者抽象类
  *
- * @param <T> the type parameter
+ * @param <T> 泛型参数
  */
 public abstract class BaseFlowable<T> extends BaseAbstract<T> implements FlowableSubscriber<T> {
 

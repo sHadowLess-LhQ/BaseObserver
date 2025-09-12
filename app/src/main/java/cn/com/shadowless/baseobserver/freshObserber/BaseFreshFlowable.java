@@ -7,27 +7,27 @@ import cn.com.shadowless.baseobserver.ObserveEventSpecification;
 import cn.com.shadowless.baseobserver.base.BaseFlowable;
 
 /**
- * The type Base fresh flowable.
+ * 基础刷新Flowable订阅者抽象类
  *
- * @param <T> the type parameter
+ * @param <T> 泛型参数
  * @author sHadowLess
  */
 public abstract class BaseFreshFlowable<T> extends BaseFlowable<T> implements ObserveEventSpecification<T> {
 
     /**
-     * The Loading popup view.
+     * 刷新布局
      */
     private final SmartRefreshLayout refreshLayout;
 
     /**
-     * The State.
+     * 刷新状态
      */
     private final RefreshState state;
 
     /**
-     * Instantiates a new Base fresh observer.
+     * 构造函数
      *
-     * @param refreshLayout the refresh layout
+     * @param refreshLayout 刷新布局
      */
     public BaseFreshFlowable(SmartRefreshLayout refreshLayout) {
         this.refreshLayout = refreshLayout;

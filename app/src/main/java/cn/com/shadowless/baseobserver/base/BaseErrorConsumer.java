@@ -5,7 +5,7 @@ import android.util.Log;
 import io.reactivex.rxjava3.functions.Consumer;
 
 /**
- * The type Base error consumer.
+ * 基础错误消费者接口
  *
  * @author sHadowLess
  */
@@ -17,11 +17,11 @@ public interface BaseErrorConsumer extends Consumer<Throwable> {
     }
 
     /**
-     * Error.
+     * 错误处理方法
      *
-     * @param error the error
-     * @param e     the e
-     * @throws Throwable the throwable
+     * @param error 错误信息
+     * @param e     异常对象
+     * @throws Throwable 异常
      */
     void error(String error, Throwable e) throws Throwable;
 }
