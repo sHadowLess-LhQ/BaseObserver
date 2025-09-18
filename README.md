@@ -4,7 +4,9 @@
 
 个人自用Rxjava观察者封装
 
-### 【注】：3.0变更了包结构，并引入Kotlin扩展函数方便Kotlin开发时使用
+### 【注】：3.0变更的包结构，并引入Kotlin扩展函数方便使用，若不用Kotlin开发，可用老版本
+
+### 【注】：4.0重构了刷新和加载弹窗，通过接口对外暴露，由调用方来具体实现，与3.0不兼容
 
 #### 安装教程
 
@@ -39,7 +41,7 @@ a、克隆引入
 
 b、远程仓库引入
 
-[![](https://jitpack.io/v/sHadowLess-LhQ/BaseObserver.svg)](https://jitpack.io/#sHadowLess-LhQ/BaseObserver)
+[[![](https://jitpack.io/v/com.gitee.shadowless_lhq/base-observer.svg)](https://jitpack.io/#com.gitee.shadowless_lhq/base-observer)
 
 ```
      dependencies {

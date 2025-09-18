@@ -1,12 +1,11 @@
 package cn.com.shadowless.baseobserver;
 
 
-import android.app.Activity;
+import android.os.Handler;
+import android.os.Looper;
 
-import com.lxj.xpopup.XPopup;
-import com.lxj.xpopup.core.BasePopupView;
-import com.scwang.smart.refresh.layout.SmartRefreshLayout;
-import com.scwang.smart.refresh.layout.constant.RefreshState;
+import cn.com.shadowless.baseobserver.event.EventCallBack;
+import io.reactivex.rxjava3.annotations.NonNull;
 
 /**
  * 观察者公共抽象封装规范（包含公共方法和变量）
@@ -19,43 +18,29 @@ public abstract class BaseAbstract<T> {
     /**
      * 加载时间（毫秒）
      */
-    protected int loadingTime = 500;
+    protected int loadingTime = 0;
 
     /**
      * 加载弹窗视图
      */
-    protected BasePopupView loadingPopupView = null;
+    protected EventCallBack callBack = null;
 
     /**
-     * 获取加载弹窗视图
-     *
-     * @param activity Activity上下文
-     * @param config   加载配置
-     * @return 加载弹窗视图
+     * 执行
      */
-    protected BasePopupView getLoadingPopView(Activity activity, LoadingConfig config) {
-        return new XPopup
-                .Builder(activity)
-                .isDestroyOnDismiss(config.isDestroyOnDismiss())
-                .isViewMode(config.isViewModel())
-                .dismissOnBackPressed(config.isCanBackCancel())
-                .dismissOnTouchOutside(config.isCanOutSideCancel())
-                .hasBlurBg(config.isHasBlurBg())
-                .hasShadowBg(config.isHasShadow())
-                .asLoading(config.getLoadName());
-    }
+    protected final Handler handler = new Handler(Looper.getMainLooper());
 
     /**
      * 自动完成刷新或加载操作
      *
-     * @param state  刷新状态
-     * @param layout 刷新布局
+     * @param state    刷新状态
+     * @param callBack 刷新
      */
-    protected void autoFinishRefreshAndLoad(RefreshState state, SmartRefreshLayout layout) {
-        if (state == RefreshState.Refreshing) {
-            layout.finishRefresh();
-        } else if (state == RefreshState.Loading) {
-            layout.finishLoadMore();
+    protected void autoFinishRefreshAndLoad(int state, EventCallBack callBack) {
+        if (state == EventCallBack.REFRESH) {
+            callBack.finishRefresh();
+        } else if (state == EventCallBack.LOAD) {
+            callBack.finishLoad();
         }
     }
 
@@ -69,7 +54,7 @@ public abstract class BaseAbstract<T> {
      *
      * @param t 数据对象
      */
-    public abstract void success(T t);
+    public abstract void success(@NonNull T t);
 
     /**
      * 失败事件
@@ -77,7 +62,7 @@ public abstract class BaseAbstract<T> {
      * @param error 错误信息
      * @param e     异常对象
      */
-    public abstract void fail(String error, Throwable e);
+    public abstract void fail(@NonNull String error, @NonNull Throwable e);
 
     /**
      * 完成事件

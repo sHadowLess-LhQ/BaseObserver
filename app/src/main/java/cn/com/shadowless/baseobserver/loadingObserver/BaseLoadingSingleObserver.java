@@ -1,13 +1,9 @@
 package cn.com.shadowless.baseobserver.loadingObserver;
 
-import android.app.Activity;
-
-import androidx.annotation.NonNull;
-
-
 import cn.com.shadowless.baseobserver.base.BaseSingleObserver;
-import cn.com.shadowless.baseobserver.LoadingConfig;
-import cn.com.shadowless.baseobserver.ObserveEventSpecification;
+import cn.com.shadowless.baseobserver.event.EventCallBack;
+import cn.com.shadowless.baseobserver.event.ObserveEventSpecification;
+import io.reactivex.rxjava3.annotations.NonNull;
 
 
 /**
@@ -21,37 +17,38 @@ public abstract class BaseLoadingSingleObserver<T> extends BaseSingleObserver<T>
     /**
      * 构造函数
      *
-     * @param activity Activity上下文
-     * @param config   加载配置
+     * @param callBack 加载
      */
-    public BaseLoadingSingleObserver(@NonNull Activity activity, @NonNull LoadingConfig config) {
-        loadingPopupView = this.getLoadingPopView(activity, config);
+    public BaseLoadingSingleObserver(@NonNull EventCallBack callBack) {
+        this.callBack = callBack;
     }
 
     @Override
     public void start() {
-        loadingPopupView.show();
-        loadingTime = loadingPopupView.getAnimationDuration() + 200;
+        callBack.show();
+        loadingTime = callBack.getAnimationDuration() + 200;
         onStartEvent();
     }
 
     @Override
-    public void success(T t) {
-        loadingPopupView.delayDismissWith(loadingTime, () -> onSuccessEvent(t));
+    public void success(@NonNull T t) {
+        callBack.dismiss();
+        handler.postDelayed(() -> onSuccessEvent(t), loadingTime);
     }
 
     @Override
-    public void fail(String error, Throwable e) {
-        loadingPopupView.delayDismissWith(loadingTime, () -> onFailEvent(error, e));
+    public void fail(@NonNull String error, @NonNull Throwable e) {
+        callBack.dismiss();
+        handler.postDelayed(() -> onFailEvent(error, e), loadingTime);
     }
 
     @Override
-    public void onRefreshEvent(T t) {
+    public void onRefreshEvent(@NonNull T t) {
 
     }
 
     @Override
-    public void onLoadEvent(T t) {
+    public void onLoadEvent(@NonNull T t) {
 
     }
 

@@ -16,7 +16,7 @@ import io.reactivex.rxjava3.disposables.Disposable;
 public abstract class BaseMaybeObserver<T> extends BaseAbstract<T> implements MaybeObserver<T> {
 
     @Override
-    public void onSubscribe(Disposable d) {
+    public void onSubscribe(@NonNull Disposable d) {
         start();
     }
 
@@ -26,7 +26,7 @@ public abstract class BaseMaybeObserver<T> extends BaseAbstract<T> implements Ma
     }
 
     @Override
-    public void onError(Throwable e) {
+    public void onError(@NonNull Throwable e) {
         fail(Log.getStackTraceString(e), e);
     }
 

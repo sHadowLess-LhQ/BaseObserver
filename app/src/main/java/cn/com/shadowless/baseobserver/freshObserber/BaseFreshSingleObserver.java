@@ -1,11 +1,10 @@
 package cn.com.shadowless.baseobserver.freshObserber;
 
 
-import com.scwang.smart.refresh.layout.SmartRefreshLayout;
-import com.scwang.smart.refresh.layout.constant.RefreshState;
-
 import cn.com.shadowless.baseobserver.base.BaseSingleObserver;
-import cn.com.shadowless.baseobserver.ObserveEventSpecification;
+import cn.com.shadowless.baseobserver.event.EventCallBack;
+import cn.com.shadowless.baseobserver.event.ObserveEventSpecification;
+import io.reactivex.rxjava3.annotations.NonNull;
 
 
 /**
@@ -17,23 +16,18 @@ import cn.com.shadowless.baseobserver.ObserveEventSpecification;
 public abstract class BaseFreshSingleObserver<T> extends BaseSingleObserver<T> implements ObserveEventSpecification<T> {
 
     /**
-     * 刷新布局
-     */
-    private final SmartRefreshLayout refreshLayout;
-
-    /**
      * 刷新状态
      */
-    private final RefreshState state;
+    private final int state;
 
     /**
      * 构造函数
      *
-     * @param refreshLayout 刷新布局
+     * @param callBack 刷新布局
      */
-    public BaseFreshSingleObserver(SmartRefreshLayout refreshLayout) {
-        this.refreshLayout = refreshLayout;
-        this.state = refreshLayout.getState();
+    public BaseFreshSingleObserver(@NonNull EventCallBack callBack) {
+        this.callBack = callBack;
+        this.state = callBack.getState();
     }
 
     @Override
@@ -42,24 +36,24 @@ public abstract class BaseFreshSingleObserver<T> extends BaseSingleObserver<T> i
     }
 
     @Override
-    public void success(T t) {
-        if (state == RefreshState.Refreshing) {
-            refreshLayout.finishRefresh();
+    public void success(@NonNull T t) {
+        if (state == EventCallBack.REFRESH) {
+            callBack.finishRefresh();
             onRefreshEvent(t);
-        } else if (state == RefreshState.Loading) {
-            refreshLayout.finishLoadMore();
+        } else if (state == EventCallBack.LOAD) {
+            callBack.finishLoad();
             onLoadEvent(t);
         }
     }
 
     @Override
-    public void fail(String error, Throwable e) {
-        this.autoFinishRefreshAndLoad(state, refreshLayout);
+    public void fail(@NonNull String error, @NonNull Throwable e) {
+        this.autoFinishRefreshAndLoad(state, callBack);
         onFailEvent(error, e);
     }
 
     @Override
-    public void onSuccessEvent(T t) {
+    public void onSuccessEvent(@NonNull T t) {
 
     }
 

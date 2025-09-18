@@ -21,12 +21,12 @@ public abstract class BaseFlowable<T> extends BaseAbstract<T> implements Flowabl
     }
 
     @Override
-    public void onNext(T t) {
+    public void onNext(@NonNull T t) {
         success(t);
     }
 
     @Override
-    public void onError(Throwable e) {
+    public void onError(@NonNull Throwable e) {
         fail(Log.getStackTraceString(e), e);
     }
 

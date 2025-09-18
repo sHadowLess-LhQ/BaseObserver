@@ -4,6 +4,7 @@ import android.util.Log;
 
 
 import cn.com.shadowless.baseobserver.BaseAbstract;
+import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.CompletableObserver;
 import io.reactivex.rxjava3.disposables.Disposable;
 
@@ -15,12 +16,12 @@ import io.reactivex.rxjava3.disposables.Disposable;
 public abstract class BaseCompletableObserver extends BaseAbstract<Object> implements CompletableObserver {
 
     @Override
-    public void onSubscribe(Disposable d) {
+    public void onSubscribe(@NonNull Disposable d) {
         start();
     }
 
     @Override
-    public void onError(Throwable e) {
+    public void onError(@NonNull Throwable e) {
         fail(Log.getStackTraceString(e), e);
     }
 
